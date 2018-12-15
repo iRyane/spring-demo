@@ -1,4 +1,4 @@
-package com.example.modules;
+package com.springboot.modules;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
@@ -72,7 +72,7 @@ public class CodeGenerater {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.example.modules");
+        pc.setParent("com.springboot.modules");
         mpg.setPackageInfo(pc);
 
         // 自定义配置

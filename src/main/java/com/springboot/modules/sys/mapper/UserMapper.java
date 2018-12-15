@@ -1,7 +1,8 @@
-package com.example.modules.sys.mapper;
+package com.springboot.modules.sys.mapper;
 
-import com.example.modules.sys.entity.UserEntity;
+import com.springboot.modules.sys.entity.UserEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author yan
  * @since 2018-12-12
  */
+@Mapper
 public interface UserMapper extends BaseMapper<UserEntity> {
 
 }

@@ -23,7 +23,7 @@
         <mybatisplus.spring.boot.version>3.0.6</mybatisplus.spring.boot.version>
         <mysql.version>5.1.9</mysql.version>
         <shiro.spring.version>1.4.0</shiro.spring.version>
-        <druid.version>1.1.6</druid.version>
+        <druid.version>1.1.10</druid.version>
         <velocity.version>2.0</velocity.version>
         <freemarker.version>2.3.28</freemarker.version>
     </properties>
@@ -36,6 +36,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
         <dependency>

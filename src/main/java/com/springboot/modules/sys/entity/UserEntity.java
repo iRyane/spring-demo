@@ -1,4 +1,4 @@
-package com.example.modules.sys.entity;
+package com.springboot.modules.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
  * @since 2018-12-12
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("sys_user")
 public class UserEntity implements Serializable {
@@ -45,6 +45,10 @@ public class UserEntity implements Serializable {
      */
     private Integer status;
 
+    /**
+     * 创建者ID
+     */
+    private Integer createUserId;
     /**
      * 角色Id列表
      */
