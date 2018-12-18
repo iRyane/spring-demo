@@ -26,7 +26,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         Page<UserEntity> page = (Page<UserEntity>) this.page(
                 new Page<>(curr,size),
                 new EmptyWrapper<UserEntity>()
-                        .eq(createUserId != null, "name", createUserId)
+                        .eq(createUserId != null, "create_user_id", createUserId)
         );
         return page;
     }

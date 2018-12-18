@@ -12,5 +12,10 @@ import java.util.Map;
  */
 public interface UserService extends IService<UserEntity> {
 
+    /**
+     * 分页查询用户信息
+     * @param params
+     * @return
+     */
     Page<UserEntity> queryPage(Map<String, Object> params);
 }
