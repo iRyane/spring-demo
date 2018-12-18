@@ -27,7 +27,7 @@ public class UserController extends AbstractController{
      */
     @PostMapping("/save")
     public void save(@RequestBody UserEntity userEntity){
-        userService.save(userEntity);
+        userService.add(userEntity);
     }
 
     /**
@@ -36,7 +36,7 @@ public class UserController extends AbstractController{
      */
     @PostMapping("/delete")
     public void delete(@RequestBody Integer[] ids){
-        userService.removeByIds(Arrays.asList(ids));
+        userService.deleteBatch(ids);
     }
 
     /**
@@ -52,4 +52,12 @@ public class UserController extends AbstractController{
         userService.queryPage(params);
     }
 
+    /**
+     * 更新用户
+     * @param user
+     */
+    @PostMapping("/update")
+    public void update(@RequestBody UserEntity user){
+        userService.update(user);
+    }
 }

@@ -53,7 +53,7 @@ public class UserEntity implements Serializable {
      * 角色Id列表
      */
     @TableField(exist = false)
-    private List<Long> roleIdList;
+    private List<Integer> roleIdList;
 
 
 }

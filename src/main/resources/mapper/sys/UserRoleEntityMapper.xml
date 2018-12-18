@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.modules.sys.mapper.UserRoleMapper">
+
+
+    <delete id="deleteBatch">
+        delete from sys_user_role where user_id in
+        <foreach collection="list" item="userIds" separator="," open="(" close=")">
+            #{userIds}
+        </foreach>
+    </delete>
+
+    <select id="queryRoles" resultType="java.lang.String">
+        select sr.role from sys_user_role sur
+            left join sys_role sr on sur.role_id = sr.id
+        where sur.user_id = #{userId}
+    </select>
+</mapper>

@@ -5,10 +5,9 @@ import com.springboot.modules.sys.mapper.RolePermissionMapper;
 import com.springboot.modules.sys.service.RolePermissionService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * <p>
@@ -22,9 +21,8 @@ import java.util.List;
 public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionMapper, RolePermissionEntity> implements RolePermissionService {
 
     @Override
+    @Transactional
     public void saveOrUpdate(Integer roleId, List<Integer> permIdList) {
-        //先删除用户与角色的关联
-        baseMapper.deleteBatchIds(Arrays.asList(roleId));
 
         if(permIdList.size() == 0){
             return;
@@ -33,7 +31,6 @@ public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionMapper,
         //保存角色与菜单的关联
         List<RolePermissionEntity> list = new ArrayList<>(permIdList.size());
         for(Integer permId : permIdList){
-
             RolePermissionEntity rolePermissionEntity = new RolePermissionEntity();
             rolePermissionEntity.setRoleId(roleId);
             rolePermissionEntity.setPermissionId(permId);
@@ -41,11 +38,17 @@ public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionMapper,
             list.add(rolePermissionEntity);
         }
 
-        this.saveBatch(list);
+        this.saveOrUpdateBatch(list);
     }
 
     @Override
     public List<Integer> queryPermIds(Integer roleId) {
         return baseMapper.queryPermIds(roleId);
+    }
+
+    @Override
+    @Transactional
+    public int deleteBatch(Integer[] roleIds) {
+        return baseMapper.deleteBatch(roleIds);
     }
 }

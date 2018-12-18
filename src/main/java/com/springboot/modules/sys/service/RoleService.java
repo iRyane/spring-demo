@@ -29,7 +29,11 @@ public interface RoleService extends IService<RoleEntity> {
      */
     void add(RoleEntity roleEntity);
 
+    /**
+     * 更新角色
+     * @param roleEntity
+     */
     void update(RoleEntity roleEntity);
 
-    void deleteBatch(Integer[] roleIds);
+    int deleteBatch(Integer[] roleIds);
 }

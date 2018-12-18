@@ -28,4 +28,11 @@ public interface RolePermissionService extends IService<RolePermissionEntity> {
      * @return
      */
     List<Integer> queryPermIds(Integer roleId);
+
+    /**
+     * 删除角色与用户的关联关系
+     * @param roleIds
+     * @return
+     */
+    int deleteBatch(Integer[] roleIds);
 }

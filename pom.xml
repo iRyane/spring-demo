@@ -26,6 +26,7 @@
         <druid.version>1.1.10</druid.version>
         <velocity.version>2.0</velocity.version>
         <freemarker.version>2.3.28</freemarker.version>
+        <commons.lang.version>3.8.1</commons.lang.version>
     </properties>
     <dependencies>
         <dependency>
@@ -79,6 +80,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang.version}</version>
         </dependency>
 
         <!-- freemarker 模板引擎 -->

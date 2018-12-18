@@ -17,5 +17,17 @@ import java.util.List;
 @Mapper
 public interface RolePermissionMapper extends BaseMapper<RolePermissionEntity> {
 
+    /**
+     * 根据角色ID查询权限ID
+     * @param roleId
+     * @return
+     */
     List<Integer> queryPermIds(Integer roleId);
+
+    /**
+     * 根据角色ID删除角色与权限的关联关系
+     * @param roleIds
+     * @return
+     */
+    int deleteBatch(Integer[] roleIds);
 }

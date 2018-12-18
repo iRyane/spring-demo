@@ -9,6 +9,7 @@ import com.springboot.modules.sys.service.RoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -40,26 +41,30 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, RoleEntity> impleme
     }
 
     @Override
+    @Transactional
     public void add(RoleEntity roleEntity){
         //添加角色
         this.save(roleEntity);
 
-        //保存角色与菜单的关系
+        //保存角色与菜单的关联关系
         rolePermissionService.saveOrUpdate(roleEntity.getId(), roleEntity.getPermissionIdList() );
     }
 
     @Override
+    @Transactional
     public void update(RoleEntity roleEntity) {
         this.updateById(roleEntity);
 
-        //更新角色与菜单的关系
+        //更新角色与菜单的关联关系
         rolePermissionService.saveOrUpdate(roleEntity.getId(), roleEntity.getPermissionIdList() );
     }
 
     @Override
-    public void deleteBatch(Integer[] roleIds) {
+    @Transactional
+    public int deleteBatch(Integer[] roleIds) {
         this.removeByIds(Arrays.asList(roleIds));
 
-        rolePermissionService.removeByIds(Arrays.asList(roleIds));
+        //删除角色与权限的关联关系
+        return rolePermissionService.deleteBatch(roleIds);
     }
 }

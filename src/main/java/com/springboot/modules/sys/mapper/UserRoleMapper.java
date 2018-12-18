@@ -3,6 +3,9 @@ package com.springboot.modules.sys.mapper;
 import com.springboot.modules.sys.entity.UserRoleEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,4 +18,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserRoleMapper extends BaseMapper<UserRoleEntity> {
 
+    int deleteBatch(@Param("userIds") List<Integer> userIds);
+
+    List<String> queryRoles(Integer userId);
 }

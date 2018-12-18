@@ -4,6 +4,8 @@ import com.springboot.modules.sys.entity.UserEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -14,5 +16,19 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface UserMapper extends BaseMapper<UserEntity> {
+
+    /**
+     * 查询用户的所有权限
+     * @param userId
+     * @return
+     */
+    List<String> queryPerms(Integer userId);
+
+    /**
+     * 查询用户的所有权限ID
+     * @param userId
+     * @return
+     */
+    List<Integer> queryPermIds(Integer userId);
 
 }
