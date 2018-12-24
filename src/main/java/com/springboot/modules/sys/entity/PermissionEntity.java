@@ -1,5 +1,6 @@
 package com.springboot.modules.sys.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
@@ -24,7 +25,7 @@ public class PermissionEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId
-    private Integer id;
+    private Long id;
 
     /**
      * 权限信息

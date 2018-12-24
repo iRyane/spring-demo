@@ -35,7 +35,7 @@ public class UserController extends AbstractController{
      * @param ids
      */
     @PostMapping("/delete")
-    public void delete(@RequestBody Integer[] ids){
+    public void delete(@RequestBody Long[] ids){
         userService.deleteBatch(ids);
     }
 

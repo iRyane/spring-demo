@@ -22,11 +22,13 @@ public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRoleEnt
 
     @Override
     @Transactional
-    public void saveOrUpdate(Integer userId, List<Integer> roleIdList) {
+    public void saveOrUpdate(Long userId, List<Long> roleIdList) {
+        //先删除用户与角色的关联关系
+        deleteBatch(new Long[]{userId});
 
         //保存用户与角色的关联关系
         List<UserRoleEntity> list = new ArrayList<>();
-        for(Integer roleId : roleIdList){
+        for(Long roleId : roleIdList){
             UserRoleEntity userRoleEntity = new UserRoleEntity();
             userRoleEntity.setUserId(userId);
             userRoleEntity.setRoleId(roleId);
@@ -39,7 +41,7 @@ public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRoleEnt
 
     @Override
     @Transactional
-    public int deleteBatch(Integer[] userIds) {
-        return baseMapper.deleteBatch(Arrays.asList(userIds));
+    public void deleteBatch(Long[] userIds) {
+        baseMapper.deleteBatch(Arrays.asList(userIds));
     }
 }

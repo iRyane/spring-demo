@@ -22,12 +22,12 @@ public interface RolePermissionMapper extends BaseMapper<RolePermissionEntity> {
      * @param roleId
      * @return
      */
-    List<Integer> queryPermIds(Integer roleId);
+    List<Long> queryPermIds(Long roleId);
 
     /**
      * 根据角色ID删除角色与权限的关联关系
      * @param roleIds
      * @return
      */
-    int deleteBatch(Integer[] roleIds);
+    int deleteBatch(List<Long> roleIds);
 }

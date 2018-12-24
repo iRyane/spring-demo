@@ -22,13 +22,13 @@ public interface UserMapper extends BaseMapper<UserEntity> {
      * @param userId
      * @return
      */
-    List<String> queryPerms(Integer userId);
+    List<String> queryPerms(Long userId);
 
     /**
      * 查询用户的所有权限ID
      * @param userId
      * @return
      */
-    List<Integer> queryPermIds(Integer userId);
+    List<Long> queryPermIds(Long userId);
 
 }

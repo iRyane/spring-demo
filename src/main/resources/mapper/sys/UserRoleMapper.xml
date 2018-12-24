@@ -3,7 +3,7 @@
 <mapper namespace="com.springboot.modules.sys.mapper.UserRoleMapper">
 
 
-    <delete id="deleteBatch">
+    <delete id="deleteBatch" parameterType="java.util.List">
         delete from sys_user_role where user_id in
         <foreach collection="list" item="userIds" separator="," open="(" close=")">
             #{userIds}

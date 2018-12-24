@@ -1,5 +1,6 @@
 package com.springboot.modules.sys.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -27,7 +28,7 @@ public class RoleEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId
-    private Integer id;
+    private Long id;
 
     /**
      * 角色名
@@ -38,8 +39,8 @@ public class RoleEntity implements Serializable {
      * 创建者ID
      */
     @TableField("createUserId")
-    private Integer createUserId;
+    private Long createUserId;
 
     @TableField(exist = false)
-    private List<Integer> permissionIdList;
+    private List<Long> permissionIdList;
 }

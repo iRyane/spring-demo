@@ -9,7 +9,7 @@
         where sur.user_id = #{userId}
     </select>
 
-    <select id="queryPermIds" resultType="java.lang.Integer">
+    <select id="queryPermIds" resultType="java.lang.Long">
         select srp.permission_id from sys_user_role sur
             left join sys_role_permission srp on sur.role_id = srp.role_id
         where sur.user_id = #{userId}

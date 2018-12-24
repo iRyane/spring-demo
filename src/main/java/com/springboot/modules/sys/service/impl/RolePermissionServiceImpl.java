@@ -22,7 +22,9 @@ public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionMapper,
 
     @Override
     @Transactional
-    public void saveOrUpdate(Integer roleId, List<Integer> permIdList) {
+    public void saveOrUpdate(Long roleId, List<Long> permIdList) {
+        //先删除角色与权限的关联关系
+        deleteBatch(new Long[]{roleId});
 
         if(permIdList.size() == 0){
             return;
@@ -30,7 +32,7 @@ public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionMapper,
 
         //保存角色与菜单的关联
         List<RolePermissionEntity> list = new ArrayList<>(permIdList.size());
-        for(Integer permId : permIdList){
+        for(Long permId : permIdList){
             RolePermissionEntity rolePermissionEntity = new RolePermissionEntity();
             rolePermissionEntity.setRoleId(roleId);
             rolePermissionEntity.setPermissionId(permId);
@@ -42,13 +44,13 @@ public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionMapper,
     }
 
     @Override
-    public List<Integer> queryPermIds(Integer roleId) {
+    public List<Long> queryPermIds(Long roleId) {
         return baseMapper.queryPermIds(roleId);
     }
 
     @Override
     @Transactional
-    public int deleteBatch(Integer[] roleIds) {
-        return baseMapper.deleteBatch(roleIds);
+    public int deleteBatch(Long[] roleIds) {
+        return baseMapper.deleteBatch(Arrays.asList(roleIds));
     }
 }

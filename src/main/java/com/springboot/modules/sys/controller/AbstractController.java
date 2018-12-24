@@ -19,7 +19,7 @@ public abstract class AbstractController {
         return (UserEntity)SecurityUtils.getSubject().getPrincipals();
     }
 
-    protected Integer getUserId(){
+    protected Long getUserId(){
         return getUser().getId();
     }
 }

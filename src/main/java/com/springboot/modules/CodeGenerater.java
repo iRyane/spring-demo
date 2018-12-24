@@ -57,6 +57,7 @@ public class CodeGenerater {
         gc.setEntityName("%sEntity");
         gc.setServiceName("%sService");
         //gc.setServiceImplName("I%sServiceImpl");
+        gc.setXmlName("%sMapper");
 
         mpg.setGlobalConfig(gc);
 

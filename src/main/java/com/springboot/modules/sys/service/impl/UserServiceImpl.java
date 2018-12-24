@@ -1,6 +1,7 @@
 package com.springboot.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.EmptyWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.springboot.modules.sys.entity.UserEntity;
 import com.springboot.modules.sys.mapper.UserMapper;
@@ -29,9 +30,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         Integer createUserId = (Integer) params.get("createUserId");
 
         Page<UserEntity> page = (Page<UserEntity>) this.page(
-                new Page<>(1,5),
-                new EmptyWrapper<UserEntity>()
-//                        .eq(createUserId != null, "create_user_id", createUserId)
+                new Page<>(curr,size),
+                new QueryWrapper<UserEntity>()
+                        .eq(createUserId != null, "create_user_id", createUserId)
         );
         return page;
     }
@@ -53,7 +54,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
     }
 
     @Override
-    public void deleteBatch(Integer[] userIds) {
+    public void deleteBatch(Long[] userIds) {
         this.removeByIds(Arrays.asList(userIds));
 
         //删除用户与角色的关联关系
@@ -61,7 +62,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
     }
 
     @Override
-    public Set<String> queryPerms(Integer userId) {
+    public Set<String> queryPerms(Long userId) {
         List<String> permsList =baseMapper.queryPerms(userId);
         Set<String> permsSet = new HashSet<>();
         for(String perms : permsList){

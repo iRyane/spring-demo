@@ -24,7 +24,7 @@ public interface RoleService extends IService<RoleEntity> {
     Page<RoleEntity> queryPage(Map<String, Object> params);
 
     /**
-     * 添加用户
+     * 添加角色
      * @param roleEntity
      */
     void add(RoleEntity roleEntity);
@@ -35,5 +35,10 @@ public interface RoleService extends IService<RoleEntity> {
      */
     void update(RoleEntity roleEntity);
 
-    int deleteBatch(Integer[] roleIds);
+    /**
+     * 删除角色
+     * @param roleIds
+     * @return
+     */
+    int deleteBatch(Long[] roleIds);
 }

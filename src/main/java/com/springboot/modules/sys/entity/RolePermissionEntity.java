@@ -1,5 +1,7 @@
 package com.springboot.modules.sys.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import lombok.Data;
@@ -22,15 +24,17 @@ public class RolePermissionEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId
+    private Long id;
     /**
      * 角色ID
      */
-    private Integer roleId;
+    private Long roleId;
 
     /**
      * 权限ID
      */
-    private Integer permissionId;
+    private Long permissionId;
 
 
 }

@@ -18,7 +18,7 @@ import java.util.List;
 @Mapper
 public interface UserRoleMapper extends BaseMapper<UserRoleEntity> {
 
-    int deleteBatch(@Param("userIds") List<Integer> userIds);
+    int deleteBatch(List<Long> userIds);
 
-    List<String> queryRoles(Integer userId);
+    List<String> queryRoles(Long userId);
 }

@@ -20,11 +20,11 @@ public interface UserRoleService extends IService<UserRoleEntity> {
      * @param userId
      * @param roleId
      */
-    void saveOrUpdate(Integer userId, List<Integer> roleId);
+    void saveOrUpdate(Long userId, List<Long> roleId);
 
     /**
      * 删除用户与角色的关联关系
      * @param userIds
      */
-    int deleteBatch(Integer[] userIds);
+    void deleteBatch(Long[] userIds);
 }

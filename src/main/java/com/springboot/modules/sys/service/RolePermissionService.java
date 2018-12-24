@@ -20,19 +20,19 @@ public interface RolePermissionService extends IService<RolePermissionEntity> {
      * @param roleId
      * @param permId
      */
-    void saveOrUpdate(Integer roleId, List<Integer> permId);
+    void saveOrUpdate(Long roleId, List<Long> permId);
 
     /**
      * 根据角色Id查询权限Id
      * @param roleId
      * @return
      */
-    List<Integer> queryPermIds(Integer roleId);
+    List<Long> queryPermIds(Long roleId);
 
     /**
      * 删除角色与用户的关联关系
      * @param roleIds
      * @return
      */
-    int deleteBatch(Integer[] roleIds);
+    int deleteBatch(Long[] roleIds);
 }

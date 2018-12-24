@@ -36,12 +36,12 @@ public interface UserService extends IService<UserEntity> {
      * 删除用户
      * @param userIds
      */
-    void deleteBatch(Integer[] userIds);
+    void deleteBatch(Long[] userIds);
 
     /**
      * 查询用户权限
      * @param userId
      * @return
      */
-    Set<String> queryPerms(Integer userId);
+    Set<String> queryPerms(Long userId);
 }

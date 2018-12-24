@@ -23,7 +23,7 @@ public class UserEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId
-    private Integer id;
+    private Long id;
 
     /**
      * 用户名
@@ -48,12 +48,12 @@ public class UserEntity implements Serializable {
     /**
      * 创建者ID
      */
-    private Integer createUserId;
+    private Long createUserId;
     /**
      * 角色Id列表
      */
     @TableField(exist = false)
-    private List<Integer> roleIdList;
+    private List<Long> roleIdList;
 
 
 }

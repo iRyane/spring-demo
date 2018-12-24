@@ -1,6 +1,6 @@
 package com.springboot.modules.sys.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.EmptyWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.springboot.modules.sys.entity.RoleEntity;
 import com.springboot.modules.sys.mapper.RoleMapper;
@@ -34,7 +34,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, RoleEntity> impleme
 
         Page<RoleEntity> page = (Page<RoleEntity>) this.page(
                 new Page<>(curr,size),
-                new EmptyWrapper<RoleEntity>()
+                new QueryWrapper<RoleEntity>()
                         .eq(createUserId != null, "create_user_id", createUserId)
         );
         return page;
@@ -61,7 +61,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, RoleEntity> impleme
 
     @Override
     @Transactional
-    public int deleteBatch(Integer[] roleIds) {
+    public int deleteBatch(Long[] roleIds) {
         this.removeByIds(Arrays.asList(roleIds));
 
         //删除角色与权限的关联关系

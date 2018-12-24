@@ -38,7 +38,7 @@ public class RoleController extends AbstractController{
      * @param ids
      */
     @PostMapping("/delete")
-    public void delete(@RequestBody Integer[] ids){
+    public void delete(@RequestBody Long[] ids){
         roleService.deleteBatch(ids);
     }
 
