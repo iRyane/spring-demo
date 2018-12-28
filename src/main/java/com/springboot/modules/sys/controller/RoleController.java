@@ -4,6 +4,7 @@ package com.springboot.modules.sys.controller;
 import com.springboot.common.utils.Constant;
 import com.springboot.modules.sys.entity.RoleEntity;
 import com.springboot.modules.sys.service.RoleService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,7 @@ public class RoleController extends AbstractController{
      * @param role
      */
     @PostMapping("/save")
+    @RequiresPermissions("sys:role:save")
     public void save(@RequestBody RoleEntity role){
         roleService.add(role);
     }
@@ -38,6 +40,7 @@ public class RoleController extends AbstractController{
      * @param ids
      */
     @PostMapping("/delete")
+    @RequiresPermissions("sys:role:delete")
     public void delete(@RequestBody Long[] ids){
         roleService.deleteBatch(ids);
     }
@@ -47,6 +50,7 @@ public class RoleController extends AbstractController{
      * @param params
      */
     @GetMapping("/list")
+    @RequiresPermissions("sys:role:select")
     public void list(@RequestParam Map<String, Object> params){
         //只有超级管理员才能查看所有角色
         if(getUserId() != Constant.SUPER_ADMIN){
@@ -60,6 +64,7 @@ public class RoleController extends AbstractController{
      * @param role
      */
     @PostMapping("/update")
+    @RequiresPermissions("sys:role:update")
     public void update(@RequestBody RoleEntity role) {
         roleService.update(role);
     }

@@ -82,10 +82,6 @@ mybatis-plus:
       #db-type: mysql
       #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
       field-strategy: 2
-      #驼峰下划线转换
-      db-column-underline: true
-      #刷新mapper 调试神器
-      refresh-mapper: true
       #数据库大写下划线转换
       #capital-mode: true
       #序列接口实现类配置
@@ -96,9 +92,6 @@ mybatis-plus:
       logic-delete-value: 1
     #自定义填充策略接口实现
     #meta-object-handler: com.baomidou.springboot.xxx
-    configuration:
-      map-underscore-to-camel-case: true
-      cache-enabled: false
-      call-setters-on-nulls: true
-      # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

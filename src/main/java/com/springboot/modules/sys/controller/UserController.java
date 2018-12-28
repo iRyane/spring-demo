@@ -4,6 +4,7 @@ package com.springboot.modules.sys.controller;
 import com.springboot.common.utils.Constant;
 import com.springboot.modules.sys.entity.UserEntity;
 import com.springboot.modules.sys.service.UserService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,7 @@ public class UserController extends AbstractController{
      * @param userEntity
      */
     @PostMapping("/save")
+    @RequiresPermissions("sys:user:save")
     public void save(@RequestBody UserEntity userEntity){
         userService.add(userEntity);
     }
@@ -35,6 +37,7 @@ public class UserController extends AbstractController{
      * @param ids
      */
     @PostMapping("/delete")
+    @RequiresPermissions("sys:user:delete")
     public void delete(@RequestBody Long[] ids){
         userService.deleteBatch(ids);
     }
@@ -44,6 +47,7 @@ public class UserController extends AbstractController{
      * @param params
      */
     @GetMapping("/list")
+    @RequiresPermissions("sys:user:select")
     public void list(@RequestParam Map<String, Object> params){
         //只有超级管理员才能查看所有用户
         if(getUserId() != Constant.SUPER_ADMIN){
@@ -57,6 +61,7 @@ public class UserController extends AbstractController{
      * @param user
      */
     @PostMapping("/update")
+    @RequiresPermissions("sys:user:update")
     public void update(@RequestBody UserEntity user){
         userService.update(user);
     }
