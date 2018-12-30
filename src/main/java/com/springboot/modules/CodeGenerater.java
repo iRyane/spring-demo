@@ -136,7 +136,7 @@ public class CodeGenerater {
         //自定义基础的Entity类，公共字段
         strategy.setSuperEntityColumns("id");
         //是否生成实体时,生成字段注解
-        //strategy.entityTableFieldAnnotationEnable(true);
+        strategy.entityTableFieldAnnotationEnable(true);
         //驼峰转连字符
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
