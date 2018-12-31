@@ -65,6 +65,7 @@ spring:
   thymeleaf:
     cache: false
 
+
 mybatis-plus:
   # type-aliases扫描路径
   type-aliases-package: com.springboot.modules.*.entity

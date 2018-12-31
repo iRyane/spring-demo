@@ -25,8 +25,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
 
     @Override
     public Page<UserEntity> queryPage(Map<String, Object> params) {
-        Long curr = (Long)params.get("current");
-        Long size = (Long)params.get("size");
+        Long curr = Long.valueOf((String)params.get("current"));
+        Long size = Long.valueOf((String)params.get("size"));
         Integer createUserId = (Integer) params.get("createUserId");
 
         Page<UserEntity> page = (Page<UserEntity>) this.page(

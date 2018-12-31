@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2018-12-30
  */
 @RestController
-@RequestMapping("/sys/log-entity")
+@RequestMapping("/sys/log")
 public class LogController {
 
 }

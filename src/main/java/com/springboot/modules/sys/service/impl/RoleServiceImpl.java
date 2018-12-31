@@ -28,8 +28,8 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, RoleEntity> impleme
     @Autowired private RolePermissionService rolePermissionService;
     @Override
     public Page<RoleEntity> queryPage(Map<String, Object> params) {
-        Long curr = (Long)params.get("current");
-        Long size = (Long)params.get("size");
+        Long curr = Long.valueOf((String)params.get("current"));
+        Long size = Long.valueOf((String)params.get("size"));
         Long createUserId = (Long)params.get("createUserId");
 
         Page<RoleEntity> page = (Page<RoleEntity>) this.page(

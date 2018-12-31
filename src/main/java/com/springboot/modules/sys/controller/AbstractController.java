@@ -16,7 +16,7 @@ public abstract class AbstractController {
     protected Logger logger = LoggerFactory.getLogger(getClass());
 
     protected UserEntity getUser(){
-        return (UserEntity)SecurityUtils.getSubject().getPrincipals();
+        return (UserEntity)SecurityUtils.getSubject().getPrincipal();
     }
 
     protected Long getUserId(){
